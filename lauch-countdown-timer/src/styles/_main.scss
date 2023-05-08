@@ -1,0 +1,90 @@
+@use "variable";
+.countdown-container {
+  width: 100%;
+  min-height: 100vh;
+
+  background: url(../images/bg-stars.svg), url(../images/pattern-hills.svg);
+  background-repeat: no-repeat, no-repeat;
+  background-size: 100%, 140% 30%;
+  background-position: center, bottom center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+
+  .text-wrapper {
+    padding: 0 1rem;
+    color: variable.$White;
+    font-weight: normal;
+    letter-spacing: 0.5rem;
+    font-size: 0.5rem;
+    text-align: center;
+  }
+
+  .time-wrapper {
+    padding: 1rem 2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    .digit-container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+
+      .digits {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 4rem;
+        height: 4rem;
+        position: relative;
+        border-radius: 0.5rem;
+        background: linear-gradient(
+          hsla(236, 21%, 26%, 0.5),
+          hsla(236, 21%, 26%)
+        );
+        text-align: center;
+        font-size: 2rem;
+        color: variable.$Softred;
+        perspective: 1000px;
+      }
+
+      .digits::before {
+        position: absolute;
+        content: " ";
+        width: 4%;
+        height: 5%;
+        right: 0;
+        background: hsl(235, 16%, 14%);
+        z-index: -1;
+        border-radius: 100% 0 0 100%;
+      }
+
+      .digits::after {
+        position: absolute;
+        content: " ";
+        width: 4%;
+        height: 5%;
+        left: 0;
+        background: hsl(234, 17%, 12%);
+        z-index: -1;
+        border-radius: 0 100% 100% 0;
+      }
+
+      .digit-label {
+        font-size: 0.5rem;
+        letter-spacing: 5px;
+        text-align: center;
+        color: variable.$Grayishblue;
+      }
+    }
+  }
+}

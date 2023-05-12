@@ -10,22 +10,26 @@
   justify-content: center;
   gap: 2rem;
 }
-.countdown-container .text-wrapper {
+
+.text-wrapper {
   padding: 0 1rem;
-  color: hsl(0, 0%, 100%);
+  color: #fff;
   font-weight: normal;
   letter-spacing: 0.5rem;
   font-size: 0.5rem;
   text-align: center;
+  line-height: 2rem;
 }
-.countdown-container .time-wrapper {
+
+.time-wrapper {
   padding: 1rem 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1rem;
 }
-.countdown-container .time-wrapper .digit-container {
+
+.digit-container {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -34,44 +38,68 @@
   gap: 1rem;
   width: 100%;
 }
-.countdown-container .time-wrapper .digit-container .digits {
+
+.card {
+  width: 4.5rem;
   position: relative;
+}
+
+.digits-front,
+.digits-back {
+  position: relative;
+  width: 100%;
+  height: 2.25rem;
+  border-radius: 0.5rem;
+}
+
+.digits-front {
+  position: relative;
+  background-color: hsla(236, 21%, 26%, 0.8);
+}
+
+.digits-front.animate::before {
+  position: absolute;
+  z-index: 2;
+  content: "";
+  width: 100%;
+  height: 2.25rem;
+  border-radius: 0.5rem;
+  background-color: hsl(235, 16%, 14%);
+  animation: swing-bottom-fwd 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes swing-bottom-fwd {
+  0% {
+    transform-origin: bottom;
+    background-color: hsl(235, 16%, 14%);
+  }
+  100% {
+    transform: rotateX(-180deg);
+    transform-origin: bottom;
+    background-color: hsl(236, 21%, 26%);
+  }
+}
+.digits-back {
+  background-color: hsl(236, 21%, 26%);
+}
+
+span {
+  z-index: 3;
+  position: absolute;
+  color: hsl(345, 95%, 68%);
+  font-size: 2rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.digit-label {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 4rem;
-  height: 4rem;
-  position: relative;
-  border-radius: 0.5rem;
-  background: linear-gradient(hsla(236, 21%, 26%, 0.5), hsl(236, 21%, 26%));
-  text-align: center;
-  font-size: 2rem;
-  color: hsl(345, 95%, 68%);
-  perspective: 1000px;
-}
-.countdown-container .time-wrapper .digit-container .digits::before {
-  position: absolute;
-  content: " ";
-  width: 4%;
-  height: 5%;
-  right: 0;
-  background: hsl(235, 16%, 14%);
-  z-index: -1;
-  border-radius: 100% 0 0 100%;
-}
-.countdown-container .time-wrapper .digit-container .digits::after {
-  position: absolute;
-  content: " ";
-  width: 4%;
-  height: 5%;
-  left: 0;
-  background: hsl(234, 17%, 12%);
-  z-index: -1;
-  border-radius: 0 100% 100% 0;
-}
-.countdown-container .time-wrapper .digit-container .digit-label {
   font-size: 0.5rem;
-  letter-spacing: 5px;
+  letter-spacing: 4px;
   text-align: center;
   color: hsl(237, 18%, 59%);
 }

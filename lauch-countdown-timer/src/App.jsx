@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import '../src/styles/index.css'; // assuming your CSS file is named styles.css
+import '../src/styles/index.css';
+
+import facebook from '../src/images/icon-facebook.svg';
+import insta from '../src/images/icon-instagram.svg';
+import pinterest from '../src/images/icon-pinterest.svg';
 
 const App = () => {
   const [days, setDays] = useState('00');
@@ -47,7 +51,6 @@ const App = () => {
 
       if (remaining <= 0) {
         clearInterval(interval);
-        // You can perform any actions here when the countdown reaches zero
       }
     }, 1000);
 
@@ -83,51 +86,61 @@ const App = () => {
   }, [seconds]);
 
 
-
   return (
-    <div className="countdown-container">
-      <div className="text-wrapper">
-        <h1>WE'RE LAUNCHING SOON</h1>
+    <>
+      <div className="countdown-container">
+        <div className="text-wrapper">
+          <h1>WE'RE LAUNCHING SOON</h1>
+        </div>
+
+        <div className="time-wrapper">
+          <div className="digit-container">
+            <div className="card">
+              <div className={`digits-front ${daysAnimate ? 'animate' : ''}`}></div>
+              <span>{days}</span>
+              <div className="digits-back"></div>
+            </div>
+            <div className="digit-label">DAYS</div>
+          </div>
+
+          <div className="digit-container">
+            <div className="card">
+              <div className={`digits-front ${hoursAnimate ? 'animate' : ''}`}></div>
+              <span>{hours}</span>
+              <div className="digits-back"></div>
+            </div>
+            <div className="digit-label">HOURS</div>
+          </div>
+
+          <div className="digit-container">
+            <div className="card">
+              <div className={`digits-front ${minutesAnimate ? 'animate' : ''}`}></div>
+              <span>{minutes}</span>
+              <div className="digits-back"></div>
+            </div>
+            <div className="digit-label">MINUTES</div>
+          </div>
+
+          <div className="digit-container">
+            <div className="card">
+              <div className={`digits-front ${secondsAnimate ? 'animate' : ''}`}></div>
+              <span>{seconds}</span>
+              <div className="digits-back"></div>
+            </div>
+            <div className="digit-label">SECONDS</div>
+          </div>
+        </div>
+
+        <div className="link-wrapper">
+          <ul>
+            <li><img src={facebook} alt="" aria-hidden='true'></img></li>
+            <li><img src={pinterest} alt="" aria-hidden='true'></img></li>
+            <li><img src={insta} alt="" aria-hidden='true'></img></li>
+          </ul>
+        </div>
       </div>
 
-      <div className="time-wrapper">
-        <div className="digit-container">
-          <div className="card">
-            <div className={`digits-front ${daysAnimate ? 'animate' : ''}`}></div>
-            <span>{days}</span>
-            <div className="digits-back"></div>
-          </div>
-          <div className="digit-label">DAYS</div>
-        </div>
-
-        <div className="digit-container">
-          <div className="card">
-            <div className={`digits-front ${hoursAnimate ? 'animate' : ''}`}></div>
-            <span>{hours}</span>
-            <div className="digits-back"></div>
-          </div>
-          <div className="digit-label">HOURS</div>
-        </div>
-
-        <div className="digit-container">
-          <div className="card">
-            <div className={`digits-front ${minutesAnimate ? 'animate' : ''}`}></div>
-            <span>{minutes}</span>
-            <div className="digits-back"></div>
-          </div>
-          <div className="digit-label">MINUTES</div>
-        </div>
-
-        <div className="digit-container">
-          <div className="card">
-            <div className={`digits-front ${secondsAnimate ? 'animate' : ''}`}></div>
-            <span>{seconds}</span>
-            <div className="digits-back"></div>
-          </div>
-          <div className="digit-label">SECONDS</div>
-        </div>
-      </div >
-    </div >
+    </>
   );
 };
 

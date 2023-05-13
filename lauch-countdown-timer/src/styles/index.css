@@ -7,8 +7,10 @@
   background-position: center, bottom center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  padding: 6.5rem 0;
   gap: 2rem;
+  position: relative;
 }
 
 .text-wrapper {
@@ -76,7 +78,7 @@
   100% {
     transform: rotateX(-180deg);
     transform-origin: bottom;
-    background-color: hsl(236, 21%, 26%);
+    background-color: hsl(235, 16%, 14%);
   }
 }
 .digits-back {
@@ -104,6 +106,113 @@ span {
   color: hsl(237, 18%, 59%);
 }
 
+.link-wrapper {
+  padding: 2rem 0;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+.link-wrapper ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  align-items: center;
+}
+.link-wrapper ul li img {
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 320px) {
+  @keyframes swing-bottom-fwd {
+    0% {
+      transform-origin: bottom;
+      background-color: hsl(235, 16%, 14%);
+    }
+    100% {
+      transform: rotateX(-180deg);
+      transform-origin: bottom;
+      background-color: hsl(235, 16%, 14%);
+    }
+  }
+  .countdown-container .time-wrapper .digit-container .card {
+    width: 3.5rem;
+    position: relative;
+  }
+  .countdown-container .time-wrapper .digit-container .card .digits-front,
+  .countdown-container .time-wrapper .digit-container .card .digits-back {
+    width: 100%;
+    height: 1.75rem;
+  }
+  .countdown-container .time-wrapper .digit-container .card span {
+    font-size: 1.5rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .countdown-container .time-wrapper {
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+  .countdown-container .time-wrapper .digit-container {
+    width: 5.5rem;
+  }
+  .countdown-container .time-wrapper .digit-container .card {
+    width: 5.5rem;
+    position: relative;
+  }
+  .countdown-container .time-wrapper .digit-container .card .digits-front,
+  .countdown-container .time-wrapper .digit-container .card .digits-back {
+    width: 100%;
+    height: 2.55rem;
+  }
+  .countdown-container .time-wrapper .digit-container .card .digits-front.animate::before {
+    height: 2.55rem;
+  }
+  .countdown-container .time-wrapper .digit-container .card span {
+    font-size: 2.25rem;
+  }
+  .countdown-container .time-wrapper .digit-container .digit-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.5rem;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .countdown-container .time-wrapper {
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+  .countdown-container .time-wrapper .digit-container {
+    width: 7.5rem;
+    gap: 2rem;
+  }
+  .countdown-container .time-wrapper .digit-container .card {
+    width: 7.5rem;
+    position: relative;
+  }
+  .countdown-container .time-wrapper .digit-container .card .digits-front,
+  .countdown-container .time-wrapper .digit-container .card .digits-back {
+    width: 100%;
+    height: 3.5rem;
+  }
+  .countdown-container .time-wrapper .digit-container .card .digits-front.animate::before {
+    height: 3.5rem;
+  }
+  .countdown-container .time-wrapper .digit-container .card span {
+    font-size: 3rem;
+  }
+  .countdown-container .time-wrapper .digit-container .digit-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.5rem;
+  }
+}
 * {
   margin: 0;
   padding: 0;

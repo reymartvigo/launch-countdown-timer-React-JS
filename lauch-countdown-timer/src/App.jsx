@@ -76,7 +76,7 @@ const App = () => {
       if (hours === '00') {
         setDaysAnimate(true)
       }
-    }, 300);
+    }, 400);
 
 
 
